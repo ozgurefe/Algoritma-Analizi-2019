@@ -1,0 +1,39 @@
+
+sayac = 0
+def power(x,y):
+    t=1
+    global sayac
+    sayac = 0
+    for i in range(y):
+        sayac = sayac +1
+        t= t*x
+        
+    return (t,sayac)
+
+def power_2(x,y):
+    global sayac
+    sayac = sayac +1
+    
+    if(y==0):
+        return 1
+    if(y==1):
+        return  x
+    if (y%2==0):
+        return power_2(x*x,y//2)
+    if (y%2 == 1):
+        return power_2(x*x,y//2)*x
+def call_report_recursive(x,y):
+    global sayac
+    sayac = 0
+    r = power_2(x,y)
+    print("recursive ",x," üzeri ",y , " değeri: ", r," çağırım sayısı ", sayac)
+
+def call_report(x,y):
+    global sayac
+    sayac = 0
+    r = power(x,y)
+    print("recursive olmayan",x," üzeri ",y,"değeri: ",r[0]," çağırım sayısı", r[1])
+
+call_report_recursive(2,60)
+call_report(2,60)
+
