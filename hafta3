@@ -1,0 +1,38 @@
+import ctypes # provides low-level arrays
+import sys
+
+class DynamicArray:
+
+    def init (self):
+        self. n = 0 # count actual elements
+        self. capacity = 1 # default array capacity
+        self. A = self. make array(self. capacity) # low-level array
+        def len (self):
+        return self. n
+    def getitem (self, k):
+        if not 0 <= k < self. n:
+            raise IndexError( invalid index )
+            return self. A[k] # retrieve from array
+    def append(self, obj):
+        if self. n == self. capacity: # not enough room
+            self. resize(2 self. capacity) # so double capacity
+            self. A[self. n] = obj
+            self. n += 1
+
+    def resize(self, c): # nonpublic utitity
+        B = self. make array(c) # new (bigger) array
+        for k in range(self. n): # for each existing value
+            B[k] = self. A[k]
+            self. A = B # use the bigger array
+            self. capacity = c
+
+    def make array(self, c):
+        # nonpublic utitity
+        return (c ctypes.py object)( )
+        
+        
+        
+c = DynammicArray()
+for i in range(10):
+    c.append(" add an item "+str(i))
+    print(str(i)+ " eklendi , dizi boyutu: "+ str(c.getLenght()))
